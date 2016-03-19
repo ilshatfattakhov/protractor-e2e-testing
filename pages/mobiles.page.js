@@ -1,26 +1,20 @@
 'use strict';
 var MobilesPage = function() {
+  
+  this.mobilesList = element.all(by.css('.product-unit'));
+  this.addToCartBtn = element(by.xpath('//input[@value="Add to Cart"]'));
 
   this.visit = function() {
     browser.get('http://www.flipkart.com/mobiles');
   };
- 
-  this.setPhone = function(phone) {
-    this.phone.clear();
-    this.phone.sendKeys(phone);
-  };
- 
-  this.setPassword = function(password){
-    this.password.clear();
-    this.password.sendKeys(password);
-  };
- 
-  this.login = function() {
-    this.loginButton.click();
+
+  this.clickRandomMobile = function() {
+    // clicks random element
+    this.mobilesList.get(Math.floor(Math.random() * 11)).click();
   };
 
-  this.getGreeting = function() {
-    return element(by.css('._1AHrFc')).getText();
-  }
+  this.addToCart =function() {
+    this.addToCartBtn.click();
+  };
 };
 module.exports = MobilesPage;
