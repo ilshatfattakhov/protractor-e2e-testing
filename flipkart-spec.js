@@ -1,5 +1,5 @@
 var LoginPage = require('./pages/login.page');
-var MobilesPage = require('.pages/mobiles.page'); 
+var MobilesPage = require('./pages/mobiles.page'); 
 describe('login page', function() {
 	beforeEach(function() {
 	  return browser.ignoreSynchronization = true;
