@@ -1,9 +1,14 @@
 'use strict';
+
 var HomePage = function() {
- 
+  this.loginLink = element(by.linkText('Log In')); 
+  this.logoutLink = element(by.linkText('Log Out'));
+  this.greeting = element(by.css('._1AHrFc'));
+  this.cartBtn = element(by.css('.btn-cart'));
+
   this.visit = function() {
     browser.ignoreSynchronization = true;
-    browser.driver.get('https://www.flipkart.com/');
+    browser.get('https://www.flipkart.com/');
 
   };
  
@@ -18,11 +23,20 @@ var HomePage = function() {
   };
 
   this.goLogin = function() {
-    element(by.linkText('Log In')).click();
+    this.loginLink.click();
   };
 
+  this.logout = function() {
+    browser.actions().mouseMove(this.greeting).perform();
+    this.logoutLink.click();
+  }
+
+  this.goCart = function(){
+    this.cartBtn.click(); 
+  }
+
   this.getGreeting = function() {
-    return element(by.css('._1AHrFc')).getText();
+    return this.greeting.getText();
   }
 
 };

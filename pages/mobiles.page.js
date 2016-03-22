@@ -2,7 +2,7 @@
 var MobilesPage = function() {
   
   this.mobilesList = element.all(by.css('.product-unit'));
-  this.addToCartBtn = element(by.xpath('//input[@value="Add to Cart"]'));
+  this.addToCartBtn = element(by.css('.btn-buy-now.btn-big.current'));//element(by.xpath('//input[@value="Add to Cart"]'));
 
   this.visit = function() {
     browser.get('http://www.flipkart.com/mobiles');
